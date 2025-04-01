@@ -5,9 +5,11 @@
     <field name="arch" type="xml">
       <form string="ارسال پیامک انبوه">
         <group>
-          <field name="partner_ids" widget="many2many_tags"/>
-          <field name="message"/>
+        <field name="partner_ids" widget="many2many_tags"/>
+        <field name="tag_ids" widget="many2many_tags"/>
+        <field name="message"/>
         </group>
+
         <footer>
           <button string="ارسال" type="object" name="action_send_bulk_sms" class="btn-primary"/>
           <button string="انصراف" special="cancel" class="btn-secondary"/>

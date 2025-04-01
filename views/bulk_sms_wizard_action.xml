@@ -2,7 +2,7 @@
 
   <!-- اکشن ویزارد ارسال انبوه پیامک -->
   <record id="action_bulk_sms_wizard_from_partner" model="ir.actions.act_window">
-    <field name="name">ارسال پیامک</field>
+    <field name="name">ارسال پیامک انبوه</field>
     <field name="res_model">bulk.sms.wizard</field>
     <field name="view_mode">form</field>
     <field name="target">new</field>
@@ -11,7 +11,7 @@
 
   <!-- اضافه شدن اکشن به لیست چندتایی مخاطبین -->
   <record id="action_send_bulk_sms_from_partner" model="ir.actions.server">
-    <field name="name">ارسال پیامک</field>
+    <field name="name">ارسال پیامک انبوه</field>
     <field name="model_id" ref="base.model_res_partner"/>
     <field name="binding_model_id" ref="base.model_res_partner"/>
     <field name="state">code</field>
