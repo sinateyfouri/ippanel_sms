@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+    <!-- اکشن باز شدن فرم ویزارد -->
+    <record id="action_bulk_sms_wizard_from_menu" model="ir.actions.act_window">
+      <field name="name">ارسال پیامک انبوه</field>
+      <field name="res_model">bulk.sms.wizard</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <!-- آیتم منو در هدر مخاطبین -->
+    <menuitem id="menu_send_bulk_sms"
+              name="ارسال پیامک انبوه"
+              parent="contacts.menu_contacts"
+              action="action_bulk_sms_wizard_from_menu"
+              sequence="60"
+              groups="base.group_system"/>
+
+  </data>
+</odoo>
