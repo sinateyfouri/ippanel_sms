@@ -22,6 +22,11 @@ class SendSmsWizard(models.TransientModel):
 
         try:
             client = Client(api_key)
-            client.send(sender, [self.mobile], self.message)
+            client.send(
+                sender,
+                [self.mobile],
+                self.message,
+                "ارسال پیامک تستی از ماژول Odoo"
+            )
         except Exception as e:
             raise UserError(f"خطا در ارسال پیامک: {str(e)}")
