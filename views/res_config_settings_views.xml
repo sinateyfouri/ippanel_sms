@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="res_config_settings_view_form_ippannel_sms" model="ir.ui.view">
+            <field name="name">ippanel.sms.settings</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                 <xpath expr="//block[@name='integration']" position="inside">
+                    <setting string="Ippanel SMS Config" help="Send SMS with Ippanel. More info: https://asiapardaz.ir">
+                        <field name="use_ippanel_sms"/>
+                        <div class="content-group mt16">
+                            <div class="row">
+                                <label for="ippanel_api_key" class="col-4 o_light_label"/>
+                                <field name="ippanel_api_key" class="col-8" password="True" nolabel="1"/>
+                            </div>
+                            <div class="row mt8">
+                                <label for="ippanel_sender_number" class="col-4 o_light_label"/>
+                                <field name="ippanel_sender_number" class="col-8" nolabel="1"/>
+                            </div>
+                        </div>
+                    </setting>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
