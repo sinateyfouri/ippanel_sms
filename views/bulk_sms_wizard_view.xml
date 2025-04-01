@@ -1,0 +1,31 @@
+<odoo>
+  <record id="view_bulk_sms_wizard_form" model="ir.ui.view">
+    <field name="name">bulk.sms.wizard.form</field>
+    <field name="model">bulk.sms.wizard</field>
+    <field name="arch" type="xml">
+      <form string="ارسال پیامک انبوه">
+        <group>
+          <field name="partner_ids" widget="many2many_tags"/>
+          <field name="message"/>
+        </group>
+        <footer>
+          <button string="ارسال" type="object" name="action_send_bulk_sms" class="btn-primary"/>
+          <button string="انصراف" special="cancel" class="btn-secondary"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_bulk_sms_wizard" model="ir.actions.act_window">
+    <field name="name">ارسال پیامک انبوه</field>
+    <field name="res_model">bulk.sms.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+  </record>
+
+  <menuitem id="menu_bulk_sms"
+            name="ارسال پیامک انبوه"
+            parent="base.menu_custom"
+            action="action_bulk_sms_wizard"
+            sequence="100"/>
+</odoo>
