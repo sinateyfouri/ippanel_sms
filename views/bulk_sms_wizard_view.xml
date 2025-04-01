@@ -26,5 +26,6 @@
   <menuitem id="menu_bulk_sms"
             name="ارسال پیامک انبوه"
             parent="base.menu_custom"
-            action="action_bulk_sms_wizard"/>
+            action="action_bulk_sms_wizard"
+            sequence="100"/>
 </odoo>
