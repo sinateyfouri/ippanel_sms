@@ -12,6 +12,7 @@
         'views/send_sms_wizard_view.xml',
         'views/res_partner_view.xml',
         'views/sms_log_views.xml',
+        'views/bulk_sms_wizard_view.xml',
 
     ],
     'application': True,
