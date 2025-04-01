@@ -1,0 +1,27 @@
+<!-- views/send_sms_wizard_view.xml -->
+<odoo>
+  <record id="view_send_sms_wizard_form" model="ir.ui.view">
+    <field name="name">send.sms.wizard.form</field>
+    <field name="model">send.sms.wizard</field>
+    <field name="arch" type="xml">
+      <form string="Send SMS">
+        <group>
+          <field name="partner_id" readonly="1"/>
+          <field name="mobile" readonly="1"/>
+          <field name="message"/>
+        </group>
+        <footer>
+          <button name="action_send_sms" string="Send" type="object" class="btn-primary"/>
+          <button string="Cancel" class="btn-secondary" special="cancel"/>
+        </footer>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_send_sms_wizard" model="ir.actions.act_window">
+    <field name="name">Send SMS</field>
+    <field name="res_model">send.sms.wizard</field>
+    <field name="view_mode">form</field>
+    <field name="target">new</field>
+  </record>
+</odoo>

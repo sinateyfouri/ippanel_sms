@@ -15,9 +15,10 @@ class ResConfigSettings(models.TransientModel):
         super(ResConfigSettings, self).set_values()
         params = self.env['ir.config_parameter'].sudo()
 
-        params.set_param('ippannel_sms.use_ippanel_sms', "True" if self.use_ippanel_sms else "False")
-        params.set_param('ippanel_sms.ippanel_api_key', self.api_key or "")
-        params.set_param('ippanel_sms.ippanel_sender_number', self.api_key or "")
+        params.set_param('ippanel_sms.use_ippanel_sms', "True" if self.use_ippanel_sms else "False")
+        params.set_param('ippanel_sms.ippanel_api_key', self.ippanel_api_key or "")
+        params.set_param('ippanel_sms.ippanel_sender_number', self.ippanel_sender_number or "")
+
 
 
     @api.model

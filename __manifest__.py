@@ -7,8 +7,10 @@
     'website' : 'https://asiapardaz.ir',
     'depends': ['base', 'contacts', 'account'],
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/res_config_settings_views.xml'
+        'security/ir.model.access.csv',
+        'views/res_config_settings_views.xml',
+        'views/send_sms_wizard_view.xml',
+        'views/res_partner_view.xml',
 
     ],
     'application': True,

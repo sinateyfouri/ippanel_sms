@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_partner_form_inherit_sms" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.sms</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+            <!-- دکمه را بلافاصله بعد از فیلد mobile اضافه می‌کنیم -->
+            <xpath expr="//field[@name='mobile']" position="after">
+                <button name="action_open_sms_wizard"
+                        string="ارسال پیامک"
+                        type="object"
+                        class="btn btn-secondary"
+                        icon="fa-envelope"/>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>
