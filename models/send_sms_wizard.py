@@ -21,12 +21,22 @@ class SendSmsWizard(models.TransientModel):
             raise UserError("مخاطب شماره موبایل ندارد!")
 
         try:
+            # ارسال پیام
             client = Client(api_key)
             client.send(
                 sender,
                 [self.mobile],
                 self.message,
-                "ارسال پیامک تستی از ماژول Odoo"
+                "ارسال پیامک از Odoo"
             )
+
+            # ثبت در چتر مخاطب
+            self.partner_id.message_post(
+                body=f"📨 پیامک ارسال شد:\n{self.message}",
+                subject="ارسال پیامک با IPPanel",
+                message_type="comment"
+            )
+
         except Exception as e:
             raise UserError(f"خطا در ارسال پیامک: {str(e)}")
+
