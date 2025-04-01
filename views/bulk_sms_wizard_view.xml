@@ -6,6 +6,7 @@
       <form string="ارسال پیامک انبوه">
         <group>
           <field name="partner_ids" widget="many2many_tags"/>
+          <field name="tag_ids" widget="many2many_tags"/>
           <field name="message"/>
         </group>
         <footer>
