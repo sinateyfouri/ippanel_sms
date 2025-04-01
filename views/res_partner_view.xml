@@ -15,6 +15,21 @@
                         icon="fa-envelope"/>
             </xpath>
 
+
+                        <!-- تب لاگ پیامک‌ها در notebook فرم مخاطب -->
+            <xpath expr="//notebook" position="inside">
+                <page string="SMS Logs">
+                    <field name="sms_log_ids">
+                        <list>
+                            <field name="send_date"/>
+                            <field name="mobile"/>
+                            <field name="message"/>
+                            <field name="status"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+
         </field>
     </record>
 </odoo>
