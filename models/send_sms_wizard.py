@@ -37,6 +37,26 @@ class SendSmsWizard(models.TransientModel):
                 message_type="comment"
             )
 
-        except Exception as e:
-            raise UserError(f"خطا در ارسال پیامک: {str(e)}")
+                        # موفقیت
+            self.env['sms.log'].create({
+                'partner_id': self.partner_id.id,
+                'mobile': self.mobile,
+                'message': self.message,
+                'sender': sender,
+                'status': 'sent',
+            })
 
+
+        except Exception as e:
+            # شکست
+            self.env['sms.log'].create({
+                'partner_id': self.partner_id.id,
+                'mobile': self.mobile,
+                'message': self.message,
+                'sender': sender,
+                'status': 'failed',
+                'error_message': str(e),
+            })
+
+            raise UserError(f"خطا در ارسال پیامک: {str(e)}")
+        

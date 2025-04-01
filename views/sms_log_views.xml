@@ -1,0 +1,29 @@
+<odoo>
+  <record id="view_sms_log_tree" model="ir.ui.view">
+    <field name="name">sms.log.tree</field>
+    <field name="model">sms.log</field>
+    <field name="priority" eval="16"/> <!-- اختیاری: تعیین اولویت لود ویو -->
+    <field name="arch" type="xml">
+      <list>
+        <field name="partner_id"/>
+        <field name="mobile"/>
+        <field name="message"/>
+        <field name="status"/>
+        <field name="send_date"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="action_sms_log" model="ir.actions.act_window">
+    <field name="name">SMS Logs</field>
+    <field name="res_model">sms.log</field>
+    <field name="view_mode">list</field>
+    <field name="target">current</field>
+  </record>
+
+    <menuitem id="menu_sms_log_root"
+            name="SMS Logs"
+            parent="base.menu_custom"
+            action="action_sms_log"
+            sequence="100"/>
+</odoo>
