@@ -10,13 +10,13 @@ class SendSmsWizard(models.TransientModel):
 
     partner_id = fields.Many2one('res.partner', string="Recipient", required=True)
     mobile = fields.Char(string="Mobile", related='partner_id.mobile')
-    # template_id = fields.Many2one('sms.template', string="Template")
+    template_id = fields.Many2one('sms.template', string="Template")
     message = fields.Text(string="Message", required=True)
 
-    # @api.onchange('template_id')
-    # def _onchange_template_id(self):
-    #     if self.template_id:
-    #         self.message = self.template_id.message
+    @api.onchange('template_id')
+    def _onchange_template_id(self):
+        if self.template_id:
+            self.message = self.template_id.message
 
     def action_send_sms(self):
         config = self.env['ir.config_parameter'].sudo()
