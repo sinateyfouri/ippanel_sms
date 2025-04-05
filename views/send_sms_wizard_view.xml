@@ -8,6 +8,7 @@
         <group>
           <field name="partner_id"/>
           <field name="mobile" readonly="1"/>
+          <separator string="انتخاب قالب پیامک"/>
           <field name="template_id" options="{'no_create': True}"/>
           <field name="message"/>
         </group>

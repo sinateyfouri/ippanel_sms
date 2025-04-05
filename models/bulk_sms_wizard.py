@@ -8,7 +8,13 @@ class BulkSmsWizard(models.TransientModel):
 
     partner_ids = fields.Many2many('res.partner', string="مخاطبین خاص (اختیاری)")
     tag_ids = fields.Many2many('res.partner.category', string="فیلتر تگ مخاطبین")
+    template_id = fields.Many2one('ippanel.sms.template', string="Template")
     message = fields.Text(string="متن پیام", required=True)
+
+    @api.onchange('template_id')
+    def _onchange_template_id(self):
+        if self.template_id:
+            self.message = self.template_id.message
 
     def action_send_bulk_sms(self):
         # اگر مخاطبین خاص انتخاب شده بودن، فقط به اون‌ها ارسال کن
