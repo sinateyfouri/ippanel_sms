@@ -8,6 +8,8 @@
     'depends': ['base', 'contacts', 'account'],
     'data': [
         'security/ir.model.access.csv',
+        'views/sms_template_views.xml',
+        'views/sms_template_menu.xml',
         'views/res_config_settings_views.xml',
         'views/send_sms_wizard_view.xml',
         'views/res_partner_view.xml',

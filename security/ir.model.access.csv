@@ -2,3 +2,4 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_send_sms_wizard,send.sms.wizard,model_send_sms_wizard,base.group_user,1,1,1,1
 access_sms_log_user,sms.log,model_sms_log,base.group_user,1,1,1,0
 access_bulk_sms_wizard_user,bulk.sms.wizard,model_bulk_sms_wizard,base.group_user,1,1,1,0
+access_sms_template_manager,sms.template manager,model_sms_template,base.group_system,1,1,1,1

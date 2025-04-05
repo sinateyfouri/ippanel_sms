@@ -10,7 +10,13 @@ class SendSmsWizard(models.TransientModel):
 
     partner_id = fields.Many2one('res.partner', string="Recipient", required=True)
     mobile = fields.Char(string="Mobile", related='partner_id.mobile')
+    template_id = fields.Many2one('sms.template', string="Template")
     message = fields.Text(string="Message", required=True)
+
+    @api.onchange('template_id')
+    def _onchange_template_id(self):
+        if self.template_id:
+            self.message = self.template_id.message
 
     def action_send_sms(self):
         config = self.env['ir.config_parameter'].sudo()
@@ -21,7 +27,6 @@ class SendSmsWizard(models.TransientModel):
             raise UserError("مخاطب شماره موبایل ندارد!")
 
         try:
-            # ارسال پیام
             client = Client(api_key)
             client.send(
                 sender,
@@ -30,14 +35,12 @@ class SendSmsWizard(models.TransientModel):
                 "ارسال پیامک از Odoo"
             )
 
-            # ثبت در چتر مخاطب
             self.partner_id.message_post(
                 body=f"📨 پیامک ارسال شد:\n{self.message}",
                 subject="ارسال پیامک با IPPanel",
                 message_type="comment"
             )
 
-                        # موفقیت
             self.env['sms.log'].create({
                 'partner_id': self.partner_id.id,
                 'mobile': self.mobile,
@@ -46,9 +49,7 @@ class SendSmsWizard(models.TransientModel):
                 'status': 'sent',
             })
 
-
         except Exception as e:
-            # شکست
             self.env['sms.log'].create({
                 'partner_id': self.partner_id.id,
                 'mobile': self.mobile,
@@ -57,6 +58,4 @@ class SendSmsWizard(models.TransientModel):
                 'status': 'failed',
                 'error_message': str(e),
             })
-
             raise UserError(f"خطا در ارسال پیامک: {str(e)}")
-        
