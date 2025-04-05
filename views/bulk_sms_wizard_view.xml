@@ -7,6 +7,8 @@
         <group>
         <field name="partner_ids" widget="many2many_tags"/>
         <field name="tag_ids" widget="many2many_tags"/>
+        <separator string="انتخاب قالب پیامک"/>
+        <field name="template_id"/>
         <field name="message"/>
         </group>
 

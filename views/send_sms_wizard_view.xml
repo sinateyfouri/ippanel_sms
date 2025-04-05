@@ -4,15 +4,17 @@
     <field name="name">send.sms.wizard.form</field>
     <field name="model">send.sms.wizard</field>
     <field name="arch" type="xml">
-      <form string="Send SMS">
+      <form string="ارسال پیامک">
         <group>
-          <field name="partner_id" readonly="1"/>
+          <field name="partner_id"/>
           <field name="mobile" readonly="1"/>
+          <separator string="انتخاب قالب پیامک"/>
+          <field name="template_id" options="{'no_create': True}"/>
           <field name="message"/>
         </group>
         <footer>
-          <button name="action_send_sms" string="Send" type="object" class="btn-primary"/>
-          <button string="Cancel" class="btn-secondary" special="cancel"/>
+          <button string="ارسال" type="object" name="action_send_sms" class="btn-primary"/>
+          <button string="انصراف" class="btn-secondary" special="cancel"/>
         </footer>
       </form>
     </field>

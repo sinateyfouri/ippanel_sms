@@ -15,6 +15,9 @@
         'views/bulk_sms_wizard_view.xml',
         'views/bulk_sms_wizard_action.xml',
         'views/bulk_sms_wizard_menu.xml',
+        'views/sms_template_menu.xml',
+        'views/sms_template_views.xml',
+
 
     ],
     'application': True,
