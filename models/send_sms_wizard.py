@@ -10,7 +10,7 @@ class SendSmsWizard(models.TransientModel):
 
     partner_id = fields.Many2one('res.partner', string="Recipient", required=True)
     mobile = fields.Char(string="Mobile", related='partner_id.mobile')
-    template_id = fields.Many2one('sms.template', string="Template")
+    template_id = fields.Many2one('ippanel.sms.template', string="Template")
     message = fields.Text(string="Message", required=True)
 
     @api.onchange('template_id')
