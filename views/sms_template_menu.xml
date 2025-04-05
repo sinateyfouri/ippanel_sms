@@ -16,5 +16,5 @@
             name="قالب‌ها"
             parent="menu_sms_template_root"
             action="action_sms_template"
-            sequence="10"/>
+            sequence="100"/>
 </odoo>
