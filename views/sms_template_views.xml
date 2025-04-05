@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <record id="view_sms_template_tree" model="ir.ui.view">
-    <field name="name">sms.template.tree</field>
+  <record id="view_ippanel_sms_template_list" model="ir.ui.view">
+    <field name="name">ippanel.sms.template.list</field>
     <field name="model">sms.template</field>
     <field name="arch" type="xml">
       <list>

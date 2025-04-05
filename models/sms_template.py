@@ -2,7 +2,7 @@
 from odoo import models, fields
 
 class SmsTemplate(models.Model):
-    _name = 'sms.template'
+    _name = 'ippanel.sms.template'
     _description = 'SMS Template'
 
     name = fields.Char(string="Template Name", required=True)
